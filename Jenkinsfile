@@ -10,8 +10,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'chmod +x build.sh'
-                sh './build.sh'
+                sh 'chmod +x jenkins.sh'
+                sh './jenkins.sh'
             }
         }
     }
@@ -26,7 +26,7 @@ Job: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
 Build URL: ${env.BUILD_URL}
 """,
-                to: "your-email@gmail.com"
+                to: "ananth0909@gmail.com"
             )
         }
 
@@ -34,7 +34,7 @@ Build URL: ${env.BUILD_URL}
             emailext (
                 subject: "FAILED: Job ${env.JOB_NAME}",
                 body: "Build Failed. Check console output.",
-                to: "your-email@gmail.com"
+                to: "ananth0909@gmail.com"
             )
         }
     }
